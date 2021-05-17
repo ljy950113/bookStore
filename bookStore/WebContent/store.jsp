@@ -15,7 +15,7 @@
 
   <!-- 홈페이지 아이콘 -->
   <link href="./resources/images/bookicon.png" rel="icon">
-  <!-- 폰트어썸 사용위한 코드 -->
+  <!-- 폰트어썸 사용위한 코드입니다. -->
   <script src="https://kit.fontawesome.com/0a1668e1e9.js" crossorigin="anonymous"></script>
 
 <body>
