@@ -1,13 +1,15 @@
 package customerService;
 
+
 public class CsDTO {
 	
-	private int cs_no;
-	private String cs_title;
-	private String cus_id;
-	private String cs_date;
-	private String ask;
-	private int cs_available;
+	
+	private int cs_no; //게시글의 번호 
+	private String cs_title; //게시글 제목
+	private String cus_id; //작성자
+	private String cs_date; //작성날짜
+	private String ask; //게시글 내용
+	private int cs_available; // 게시글 삭제여부
 	
 	
 	

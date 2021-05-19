@@ -85,31 +85,6 @@ public class UserDAO {
 	}//end login
 	
 	
-	//비밀번호 확인 메소드
-	public int passwordConfirm(String cus_pw) {
-		String pwSql = "SELECT * FROM CUSTOMER WHERE cus_pw = ?";
-		try {
-			pstmt = conn.prepareStatement(pwSql);
-			pstmt.setString(1, cus_pw);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				if(rs.getString(1).equals(cus_pw)) {
-					return 1;//비밀번호 확인 성공
-				} else {
-					return 0; //비밀번호 불일치
-				}
-					
-			}
-			
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -2; //데이터베이스 오류
-	}//end passwordConfirm
-	
-	
-	
 	
 	
 
