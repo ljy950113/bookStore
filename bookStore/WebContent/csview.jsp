@@ -54,7 +54,7 @@
 	
       <div class="row">
 				
-					<table class="table table-striped" style="text-align: center;">
+					<table class="table table-striped" style="text-align: center; border: 1px solid #f4f5f2">
 
 
 					<thead>

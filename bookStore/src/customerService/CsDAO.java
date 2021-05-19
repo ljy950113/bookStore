@@ -36,20 +36,6 @@ public class CsDAO {
 	}
 	
 	
-	public String getDate() {
-		String dateSql = "";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(dateSql);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getString(1);
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return ""; //데이터베이스 오류
-	}
-	
 	
 	public int getNext() {
 		String listSql = "select cs_no from customerservice order by cs_no desc";
@@ -67,15 +53,15 @@ public class CsDAO {
 	}
 	
 	public int write(String cs_title, String cus_id, String ask) {
-		String writeSql = "insert into customerservice values(?, ?, ?, ?, ?, ?)";
+		String writeSql = "insert into customerservice values(?, ?, ?, TO_CHAR(sysdate,'yyyy/mm/dd hh24:mi:ss') , ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(writeSql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, cs_title);
 			pstmt.setString(3, cus_id);
-			pstmt.setString(4, getDate());
-			pstmt.setString(5, ask);
-			pstmt.setInt(6, 1);
+			pstmt.setString(4, ask);
+			pstmt.setInt(5, 1);
+			
 			return pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -85,7 +71,7 @@ public class CsDAO {
 	
 	
 	public ArrayList<CsDTO> getList(int pageNumber) {
-		String pageSql = "select * from (select * from customerservice where cs_no < ? and cs_available = 1 order by cs_no desc) where rownum <= 10";
+		String pageSql = "select * from (select * from customerservice where cs_no < ? and cs_available = 1 order by cs_no desc) where rownum < 11";
 		ArrayList<CsDTO> list = new ArrayList<CsDTO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(pageSql);

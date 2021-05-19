@@ -22,15 +22,11 @@
   <script src="https://kit.fontawesome.com/0a1668e1e9.js" crossorigin="anonymous"></script>
   
   <style type="text/css">
-  	a {
+  	a, a:hover {
   		color: #000000;
   		text-decoration: none;
   	}
-  	
-  	a:hover {
-  		color: #EF5350;
-  		text-decoration: none;
-  	}
+
   
   </style>
   
@@ -65,7 +61,7 @@
     <div class="container">
 	
       <div class="row">
-        <table class="table table-striped" style="text-align: center; border: 1px solid #f4f5f2">
+        <table class="table table-hover" style="text-align: center; border: 1px solid #f4f5f2">
         
           <thead>
             <tr>
@@ -83,12 +79,12 @@
           		ArrayList<CsDTO> list = csDAO.getList(pageNumber);
           		for(int i = 0; i<list.size(); i++) {
           	%>		
-          		<tr>
+          		<tr class="active">
             		<td><%= list.get(i).getCs_no() %></td>
             		<td><a href="csview.jsp?cs_no=<%= list.get(i).getCs_no() %>">
             		<%= list.get(i).getCs_title().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
             		<td><%= list.get(i).getCus_id() %></td>
-            		<td></td>
+            		<td><%= list.get(i).getCs_date() %></td>
          	 	</tr>	
           		
           	<% 	

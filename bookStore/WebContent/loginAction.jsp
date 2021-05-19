@@ -6,6 +6,7 @@
 <jsp:setProperty name="user" property="cus_id" />
 <jsp:setProperty name="user" property="cus_pw" />
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,14 @@
 			script.println("</script>");
 		}
 		
+		
+		
 		UserDAO userDAO = new UserDAO();
+		
+		
 		int result = userDAO.login(user.getCus_id(), user.getCus_pw());
+		
+		
 		if(result == 1) {
 			session.setAttribute("cus_id", user.getCus_id());//cus_id로 세션값을 부여
 			PrintWriter script = response.getWriter();
@@ -53,7 +60,11 @@
 			script.println("alert('데이터베이스 오류가 발생했습니다.')"); 
 			script.println("history.back()"); //이전페이지로 돌아감 login.jsp
 			script.println("</script>");
-		}
+		} 
+		
+		
+		
+		
 	
 	
 	%>
