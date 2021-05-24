@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import= "customer.UserDAO" %>
+<%@ page import= "dao.UserDAO" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
-<jsp:useBean id="user" class="customer.UserDTO" scope="page" />
+<jsp:useBean id="user" class="dto.UserDTO" scope="page" />
 <jsp:setProperty name="user" property="cus_id" />
 <jsp:setProperty name="user" property="cus_pw" />
 <jsp:setProperty name="user" property="cus_name" />
@@ -24,6 +24,10 @@
 		if (session.getAttribute("cus_id") != null) {
 			cus_id = (String) session.getAttribute("cus_id");
 		}
+		
+		
+		
+		
 
 		if (cus_id != null) {
 			PrintWriter script = response.getWriter();
@@ -44,6 +48,7 @@
 			script.println("</script>");
 		} else {
 			session.setAttribute("cus_id", user.getCus_id());//cus_id로 세션값을 부여
+			session.setAttribute("cus_pw", user.getCus_pw());//cus_pw로 세션값을 부여
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('회원가입을 축하드립니다!!!')");

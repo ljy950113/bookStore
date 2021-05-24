@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="customerService.CsDTO" %>
-<%@ page import="customerService.CsDAO" %>    
+<%@ page import="dto.CsDTO" %>
+<%@ page import="dao.CsDAO" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +84,7 @@
 						
 						<tr>
 							<td>작성일</td>
-							<td colspan="2"></td>
+							<td colspan="2"><%= csDTO.getCs_date() %></td>
 						</tr>
 						<!-- xss 공격에 대응하기위해 replaceAll()을 사용해서 공백, 특수문자등을 치환하여 화면에 정상적으로 출력하게 한다.  -->
 						<tr>

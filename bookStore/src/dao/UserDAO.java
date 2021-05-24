@@ -1,0 +1,125 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import dto.UserDTO;
+
+
+public class UserDAO {
+
+	private Connection conn;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+
+
+
+	public UserDAO() {
+
+
+
+		try {
+
+			//데이터베이스 정보
+			String url = "jdbc:mysql://localhost:3307/bookstore";
+			String userId="root";
+			String userPw="1234";
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, userId, userPw);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	//회원가입 메소드
+	public int join(UserDTO user) {
+
+
+		try {
+
+
+			String sql = "INSERT INTO CUSTOMER VALUES(?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getCus_id());
+			pstmt.setString(2, user.getCus_pw());
+			pstmt.setString(3, user.getCus_name());
+			pstmt.setString(4, user.getCus_add());
+			pstmt.setString(5, user.getCus_phone());
+			pstmt.setString(6, user.getCus_email());
+
+			return pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}//end join
+
+
+	//로그인 메소드
+	public int login(String cus_id, String cus_pw) {
+		String sql = "SELECT cus_pw FROM CUSTOMER WHERE cus_id = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(rs.getString(1).equals(cus_pw)) {
+					return 1;//로그인 성공
+				} else {
+					return 0; //비밀번호 불일치
+				}
+
+			}
+			return -1;//아이디가 없음
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //데이터베이스 오류
+	}//end login
+
+
+	//회원탈퇴 메소드
+	public int deleteMember(String cus_id) {
+		String sql = "delete FROM CUSTOMER WHERE cus_id = ?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return -1; //데이터베이스 오류
+	}//end deleteMember	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

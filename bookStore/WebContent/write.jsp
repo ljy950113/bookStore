@@ -23,7 +23,7 @@
   <div class="container">
 
     <!-- header.jsp 파일을 불러옵니다. -->
-    <%@ include file="header.jsp" %>
+    <%@ include file="../header.jsp" %>
 
 
     <!-- 콘텐츠 부분 -->
@@ -85,7 +85,7 @@
 
 
 	<!-- footer.jsp 파일을 불러옵니다. -->
-    <%@ include file="footer.jsp" %>
+    <%@ include file="../footer.jsp" %>
 
 
 

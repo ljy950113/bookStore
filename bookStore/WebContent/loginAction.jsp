@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import= "customer.UserDAO" %>
+<%@ page import= "dao.UserDAO" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
-<jsp:useBean id="user" class="customer.UserDTO" scope="page" />
+<jsp:useBean id="user" class="dto.UserDTO" scope="page" />
 <jsp:setProperty name="user" property="cus_id" />
 <jsp:setProperty name="user" property="cus_pw" />
 
@@ -30,6 +30,7 @@
 		
 		
 		
+		
 		UserDAO userDAO = new UserDAO();
 		
 		
@@ -38,8 +39,9 @@
 		
 		if(result == 1) {
 			session.setAttribute("cus_id", user.getCus_id());//cus_id로 세션값을 부여
+			session.setAttribute("cus_pw", user.getCus_pw());//cus_pw로 세션값을 부여
 			PrintWriter script = response.getWriter();
-			script.println("<script>");
+			script.println("<script>"); 
 			script.println("location.href = 'store.jsp'"); //로그인이 성공했으니 처음 store.jsp로 이동함
 			script.println("</script>");	
 		} else if(result == 0) {

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="customerService.CsDTO" %>
-<%@ page import="customerService.CsDAO" %>    
+<%@ page import="dto.CsDTO" %>
+<%@ page import="dao.CsDAO" %>    
 <!DOCTYPE html>
 <html>
 <head>

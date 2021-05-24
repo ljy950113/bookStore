@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import= "customerService.CsDAO" %>
+<%@ page import= "dao.CsDAO" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
-<jsp:useBean id="customerService" class="customerService.CsDTO" scope="page" />
+<jsp:useBean id="customerService" class="dto.CsDTO" scope="page" />
 <jsp:setProperty name="customerService" property="cs_title" />
 <jsp:setProperty name="customerService" property="ask" />
 

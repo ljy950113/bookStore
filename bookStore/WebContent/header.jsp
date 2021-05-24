@@ -6,6 +6,10 @@
 				if (session.getAttribute("cus_id") != null) {
 					cus_id = (String) session.getAttribute("cus_id");
 				}
+				
+				
+				
+				
 
 			%>
 
@@ -14,7 +18,7 @@
           	<%
           		if(cus_id == null) {
           	%>
-          	<!-- top menu -->
+          	
     		<div class="top_header">
       			<nav class="navbar navbar-expand w-100 navbar-light" style="background-color: #ffffff;">
         			<div class="container-fluid">
@@ -28,14 +32,40 @@
       			</nav>
     		</div>
           	<%
+          		} else if(cus_id.equals("admin")) {
+          		
+          	%>	
+          		<div class="top_header">
+					<nav class="navbar navbar-expand w-100 navbar-light" style="background-color: #ffffff;">
+						<div class="container-fluid">
+							<div class="navbar-collapse justify-content-end" id="navbarsExample02">
+								<ul class="navbar-nav">
+									<a class="nav-link">관리자님</a>
+									<a class="nav-link" href="logoutAction.jsp">로그아웃</a>
+									<a class="nav-link" href="addbook.jsp">책 입고하기</a>
+									<a class="nav-link" href="editBook.jsp?edit=update">상품 관리 하기</a>
+									<a class="nav-link" href="editBook.jsp?edit=delete">상품 삭제 하기</a>
+									<a class="nav-link" href="customerService.jsp">고객센터</a>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+          	
+          		
+          	
+          		
+          		
+          	<%	
           		} else {
           	%>
-          	<!-- top menu -->
+          	
     		<div class="top_header">
       			<nav class="navbar navbar-expand w-100 navbar-light" style="background-color: #ffffff;">
         			<div class="container-fluid">
           				<div class="navbar-collapse justify-content-end" id="navbarsExample02">		
           					<ul class="navbar-nav">
+          						<a class="nav-link"><%= cus_id %>님</a>
               					<a class="nav-link" href="logoutAction.jsp">로그아웃</a>
           	  					<a class="nav-link" href="mypage.jsp">마이 페이지</a>
               					<a class="nav-link" href="customerService.jsp">고객센터</a>	

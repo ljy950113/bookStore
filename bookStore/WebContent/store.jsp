@@ -12,7 +12,7 @@
   <link href="./resources/css/style.css" rel="stylesheet">
   <link href="./resources/css/store.css" rel="stylesheet"> 
   
-
+  	
   <!-- 홈페이지 아이콘 -->
   <link href="./resources/images/bookicon.png" rel="icon">
   <!-- 폰트어썸 사용위한 코드 -->
@@ -66,6 +66,7 @@
     </div>
     <!-- // .container -->
     
+   
     
 
 

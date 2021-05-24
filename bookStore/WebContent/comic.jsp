@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
     
     <!-- 해당 페이지 타이틀 -->
-    <title>BookForest Mypage</title>
+    <title>BookForest Login</title>
     <!-- css 파일적용 -->
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./resources/css/mypage.css" rel="stylesheet" >
+    <link href="./resources/css/login.css" rel="stylesheet" >
     <link href="./resources/css/style.css" rel="stylesheet" > 
     
     
@@ -19,50 +20,44 @@
 
 </head>
 <body>
-	
+
+
+<div class="container">
+	<!-- header.jsp 파일을 불러옵니다. -->
+    <%@ include file="header.jsp" %>
+	<div class="row" align="center">
+		<%@ include file="dbconn.jsp" %>
+		<%
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "select * from book where p_catagory=400";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+		%>
+			<div class="col-md-4">
+			<a href="./book_detail.jsp?id=<%= rs.getString("p_isbn") %>">
+				<img src="./resources/images/book2.jpg" style="width:100%"><br>
+				<small><%= rs.getString("p_name") %> </small><br>
+				<small>"<%= rs.getString("p_author") %>" 작가님 </small><br></a>
+			</div>
+		<%
+				}
+				
+		if (rs != null) rs.close();
+		if (pstmt != null) pstmt.close();
+		if (conn != null) conn.close();
+		
+		%>
+	</div>
+</div>
 
 
 
 
-
-    <!-- 큰 하나의 컨테이너 생성 -->
-    <div class="container">
-    
-    	
-    	<!-- header.jsp 파일을 불러옵니다. -->
-    	<%@ include file="header.jsp" %>	
-    
-        <!-- mypage 콘텐츠 부분  -->
-   		 <div class="container">
-
-      		<form class="form-signin" action="pwConfirmAction.jsp">
-        		<h2 class="form-signin-heading">My Page</h2>
-        		<br>
-       			<p class="mypageMent"><b>고객님의 소중한 개인정보를 위해 <br> 비밀번호를 확인해주세요!</b></p>
-        		<label for="inputPassword" class="sr-only">비밀번호</label>
-       			<input type="password" id="cus_pw" name="cus_pw" class="form-control" placeholder="비밀번호를 입력해주세요." required>
-				<p></p>
-        		<button class="btn btn-lg btn-primary btn-block" type="submit">비밀번호 확인</button>
-        	</form>
-     	 
-
-    	</div> <!-- mypage /container -->
-
-                  
-  
-
-
-</div><!-- 큰 컨테이너닫는 /div -->
 
 	<!-- footer.jsp 파일을 불러옵니다. -->
     <%@ include file="footer.jsp" %> 
-
-
-
-
-    
-
-  
 
 
   <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
@@ -71,12 +66,6 @@
   <script src="./resources/js/bootstrap.min.js"></script>
   <!-- 이 스크립트 파일은 네비게이션바(메뉴바)의 드롭다운 기능을 가지고있습니다.-->
   <script src="./resources/js/bundle.min.js"></script>
-
-
-
-
-
-    
     
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import= "customerService.CsDTO" %>
-<%@ page import= "customerService.CsDAO" %>
+<%@ page import= "dto.CsDTO" %>
+<%@ page import= "dao.CsDAO" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
 

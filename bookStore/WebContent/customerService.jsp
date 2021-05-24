@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="customerService.CsDAO" %>
-<%@ page import="customerService.CsDTO" %>
+<%@ page import="dao.CsDAO" %>
+<%@ page import="dto.CsDTO" %>
 <%@ page import="java.util.ArrayList" %>
     
 <!DOCTYPE html>
@@ -50,6 +50,20 @@
 
     <!-- header.jsp 파일을 불러옵니다. -->
     <%@ include file="header.jsp" %>
+    
+    
+    	<%
+	
+	
+			if(cus_id == null) {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('로그인을 해주세요.')"); 
+				script.println("location.href = 'login.jsp'"); 
+				script.println("</script>");
+			}
+
+		%>
 	
 	
 	
@@ -79,12 +93,12 @@
           		ArrayList<CsDTO> list = csDAO.getList(pageNumber);
           		for(int i = 0; i<list.size(); i++) {
           	%>		
-          		<tr class="active">
+          		<tr>
             		<td><%= list.get(i).getCs_no() %></td>
             		<td><a href="csview.jsp?cs_no=<%= list.get(i).getCs_no() %>">
             		<%= list.get(i).getCs_title().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
             		<td><%= list.get(i).getCus_id() %></td>
-            		<td><%= list.get(i).getCs_date() %></td>
+            		<td><%= list.get(i).getCs_date().substring(0,11) +  list.get(i).getCs_date().substring(11,13) + "시" + list.get(i).getCs_date().substring(14,16) + "분"%></td>
          	 	</tr>	
           		
           	<% 	

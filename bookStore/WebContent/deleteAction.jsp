@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import= "customerService.CsDTO" %>
-<%@ page import= "customerService.CsDAO" %>
+<%@ page import= "dto.CsDTO" %>
+<%@ page import= "dao.CsDAO" %>
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
 
@@ -11,7 +11,7 @@
 <html>
 <head>
 
-<title>문의 수정 처리</title>
+<title>문의 삭제 처리</title>
 </head>
 <body>
 
