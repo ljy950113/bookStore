@@ -29,8 +29,6 @@
 		}
 		
 		
-		
-		
 		UserDAO userDAO = new UserDAO();
 		
 		
@@ -43,7 +41,8 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>"); 
 			script.println("location.href = 'store.jsp'"); //로그인이 성공했으니 처음 store.jsp로 이동함
-			script.println("</script>");	
+			script.println("</script>");
+			
 		} else if(result == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

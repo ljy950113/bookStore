@@ -4,7 +4,7 @@
 <html>
 <head>
   <!-- 해당 페이지 타이틀 -->
-  <title>BookForest CS</title>
+  <title>BookForest review</title>
 
   <!-- css 파일적용 -->
   <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
@@ -24,23 +24,36 @@
 
     <!-- header.jsp 파일을 불러옵니다. -->
     <%@ include file="header.jsp" %>
+    
+    <%
+	
+	
+			if(cus_id == null) {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('로그인을 해주세요.')"); 
+				script.println("location.href = 'login.jsp'"); 
+				script.println("</script>");
+			}
+
+		%>
 
 
     <!-- 콘텐츠 부분 -->
     
     <br>
-    <h3 style="text-align: center; margin-top: 20px; margin-bottom: 20px;"><i class="fas fa-book"></i> Book Forest customerService</h3>
+    <h3 style="text-align: center; margin-top: 20px; margin-bottom: 20px;"><i class="fas fa-book"></i> Book Forest review</h3>
     
     <div class="container">
 	
       <div class="row">
-				<form method="post" action="writeAction.jsp" style="width:100%; height:100%;">
-					<table class="table table-striped" style="text-align: center;">
+				<form method="post" action="reviewAction.jsp" style="width:100%; height:100%;">
+					<table class="table table-dark" style="text-align: center; background-color: silver;">
 						
 
 						<thead>
 							<tr>
-								<th colspan="2" style="background-color: #fcfbf8; text-align: center;"> 고객센터 글쓰기</th>
+								<th colspan="2" style=" text-align: center;"> 리뷰 작성 </th>
 							</tr>		
 						</thead>			
 
@@ -50,10 +63,15 @@
 
 						<tbody>
 							<tr>
-								<td><input type="text" class="form-control" placeholder="문의 제목" name="cs_title" maxlength="50"></td>
+								<td><input type="text" class="form-control" placeholder="리뷰 제목" name="review_title" maxlength="50"></td>
 							</tr>
+							
+							<tr>
+								<td><input type="text" class="form-control" placeholder="도서명" name="p_name" maxlength="50"></td>
+							</tr>
+							
 							<tr>	
-								<td><textarea class="form-control" placeholder="문의 내용" name="ask" maxlength="3000" style="height: 300px;"></textarea></td>
+								<td><textarea class="form-control" placeholder="작성된 내용은 수정이 불가하니  신중하게 작성 부탁드립니다." name="review" maxlength="3000" style="height: 300px;"></textarea></td>
 							</tr>	
 									
 
@@ -65,7 +83,7 @@
 					</table>
 					
 					<input type="submit" class="btn btn-success" value="글쓰기">
-					<a href="customerService.jsp" class="btn btn-primary">뒤로가기</a>
+					<a href="review.jsp" class="btn btn-primary">뒤로가기</a>
 						
 						
 					</form>	

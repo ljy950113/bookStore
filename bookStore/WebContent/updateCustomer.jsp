@@ -64,8 +64,8 @@
 				<ul>
 
 					<li class="option"><span class="option-title">ID</span><br>
-					<input type="text" name="cus_id" id="cus_id" placeholder="아이디를 입력하세요"  value='<%=rs.getString("cus_id")  %>' class='box' maxlength="12"/> <br>
-					<span class='necessary'>영문자+숫자 조합으로 6~12자리 입력</span>
+					<input type="text" name="cus_id" id="cus_id" placeholder="아이디를 입력하세요"  value='<%=rs.getString("cus_id")  %>' readonly class='box' maxlength="12"/> <br>
+					<span class='necessary'>아이디는 수정이 불가능합니다.</span>
 					</li>
 					
 
@@ -103,7 +103,7 @@
 						
 						
 					<button type="submit" class="join-btn">수정하기</button>
-					<button type="reset" class="join-btn">다시쓰기</button>
+					
 					
 					
 				</ul>

@@ -3,12 +3,8 @@
 <%@ page import= "java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
 <jsp:useBean id="user" class="dto.UserDTO" scope="page" />
-<jsp:setProperty name="user" property="cus_id" />
-<jsp:setProperty name="user" property="cus_pw" />
-<jsp:setProperty name="user" property="cus_name" />
-<jsp:setProperty name="user" property="cus_add" />
-<jsp:setProperty name="user" property="cus_phone" />
-<jsp:setProperty name="user" property="cus_email" />
+<jsp:setProperty name="user" property="*" />
+
 
 <!DOCTYPE html>
 <html>

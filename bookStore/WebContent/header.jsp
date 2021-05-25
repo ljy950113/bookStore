@@ -40,7 +40,7 @@
 						<div class="container-fluid">
 							<div class="navbar-collapse justify-content-end" id="navbarsExample02">
 								<ul class="navbar-nav">
-									<a class="nav-link">관리자님</a>
+									<a class="nav-link">[관리자님]</a>
 									<a class="nav-link" href="logoutAction.jsp">로그아웃</a>
 									<a class="nav-link" href="addbook.jsp">책 입고하기</a>
 									<a class="nav-link" href="editBook.jsp?edit=update">상품 관리 하기</a>
@@ -65,7 +65,7 @@
         			<div class="container-fluid">
           				<div class="navbar-collapse justify-content-end" id="navbarsExample02">		
           					<ul class="navbar-nav">
-          						<a class="nav-link"><%= cus_id %>님</a>
+          						<a class="nav-link">[<%= cus_id %>님]</a>
               					<a class="nav-link" href="logoutAction.jsp">로그아웃</a>
           	  					<a class="nav-link" href="mypage.jsp">마이 페이지</a>
               					<a class="nav-link" href="customerService.jsp">고객센터</a>	
@@ -112,30 +112,30 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
               aria-expanded="false">카테고리</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">로맨스</a>
-              <a class="dropdown-item" href="#">판타지</a>
-              <a class="dropdown-item" href="#">추리</a>
-              <a class="dropdown-item" href="#">코믹</a>
-              <a class="dropdown-item" href="#">에세이</a>
-              <a class="dropdown-item" href="#">자격증</a>
+              <a class="dropdown-item" href="romance.jsp">로맨스</a>
+              <a class="dropdown-item" href="sf.jsp">판타지</a>
+              <a class="dropdown-item" href="Reasoning.jsp">추리</a>
+              <a class="dropdown-item" href="comic.jsp">코믹</a>
+              <a class="dropdown-item" href="essay.jsp">에세이</a>
+              <a class="dropdown-item" href="certificate.jsp">자격증</a>
             </div>
           </li>
 
 
 
           <li class="nav-item">
-            <a class="nav-link" href="#">대여 서비스</a>
+            <a class="nav-link" href="rent.jsp">대여 서비스</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">추천 서비스</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">리뷰</a>
+            <a class="nav-link" href="review.jsp">리뷰</a>
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <form class="form-inline my-2 my-lg-0" action="reader.jsp" method="get" id="inputForm">
+          <input class="form-control mr-sm-2" type="text" placeholder="도서 제목" name="code" id="code">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
